@@ -1,0 +1,188 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta id="theme-color" name="theme-color" content="#fff">
+    <base href="." target="_blank">
+
+    <meta charset="UTF-8">
+    <meta name="ad.size" content="width=320,height=480">
+    <title>banner</title>
+
+    <link rel="stylesheet" href="./style.css?347834" type="text/css" media="all"/>
+
+</head>
+
+<body>
+<div class="wrapper">
+   <img src="./back.jpg">
+    <div class="game">
+        <div class="logos">
+            <img src="./logo3.png">
+            <!-- <img src="./logo2.png"> -->
+        </div>
+        
+        <h1>СОБЕРИТЕ 3 В РЯД</h1>
+        <div class="cards-wrapper">
+            <div class="cards">
+                <div class="card pos-ff im-if" id="1" onclick="checkOb('1')"><img src="./4.png"></div>
+                <div class="card pos-fs im-is" id="2" onclick="checkOb('2')"><img src="./5.png"></div>
+                <div class="card pos-ft im-it" id="3" onclick="checkOb('3')"><img src="./6.png"></div>
+
+                <div class="card pos-sf im-is" id="4" onclick="checkOb('4')"><img src="./5.png"></div>
+                <div class="card pos-ss im-if" id="5" onclick="checkOb('5')"><img src="./4.png"></div>
+                <div class="card pos-st im-it" id="6" onclick="checkOb('6')"><img src="./6.png"></div>
+
+                <div class="card pos-tf im-if" id="7" onclick="checkOb('7')"><img src="./4.png"></div>
+                <div class="card pos-ts im-it" id="8" onclick="checkOb('8')"><img src="./6.png"></div>
+                <div class="card pos-tt im-is" id="9" onclick="checkOb('9')"><img src="./5.png"></div>
+
+            </div>
+        </div>
+
+        <img src="./form1.jpg" class="form" id="form" onclick="finalClick()">
+        <div id="legal" class="legal">
+            <img src="./back.jpg">
+            <p>Предложение действительно для Участников Программы лояльности Банка ВТБ (ПАО) (далее – Организатор, генеральная лицензия Банка России №1000.) Программа действует с 19.05.2019г. и не ограничена сроком действия. Повышенное Вознаграждение Участники Программы могут получить за покупки у Партнеров Программы в размере до 20% на бонусный счёт в виде бонусов, миль или бонусных рублей, в зависимости от подключенной Опции. Подробнее об Организаторе, Правилах Программы, Партнерах Программы, количестве Наград, сроках, месте и порядке их получения, ограничениях: https://multibonus.ru/ (0+). Термины с заглавной буквы употребляются в значении, определенном в Правилах Программы. Банк ВТБ (ПАО). Реклама.</p>
+        </div>
+
+
+        <h3>И УЗНАЙТЕ О МУЛЬТИВЫГОДЕ</h3>
+    </div>
+</div>
+
+<script>
+    function finalClick(){sendEv();}
+    var pointedEls=[];
+    function checkOb(id){
+        var el=document.getElementById(id);
+        el.className+=' active';
+        pointedEls[pointedEls.length]=el;
+
+        if(pointedEls.length==2){
+            var classNameTemp1 = 'pos-'+pointedEls[0].className.split('pos-')[1].split(' ')[0];
+            var classNameTemp2 = 'pos-'+pointedEls[1].className.split('pos-')[1].split(' ')[0];
+
+            pointedEls[0].className=pointedEls[0].className.replace(classNameTemp1,classNameTemp2);
+            pointedEls[1].className=pointedEls[1].className.replace(classNameTemp2,classNameTemp1);
+
+            pointedEls[0].className=pointedEls[0].className.replace('active','');
+            pointedEls[1].className=pointedEls[1].className.replace('active','');
+
+            pointedEls=[];
+
+            checkData();
+            // if(pointedEls[0].id=='8'&&pointedEls[1].id=='9') return true;
+        }
+        sendEv();
+    }
+
+    function checkData() {
+        var ff=document.getElementsByClassName('pos-ff')[0];
+        var fs=document.getElementsByClassName('pos-fs')[0];
+        var ft=document.getElementsByClassName('pos-ft')[0];
+        var sf=document.getElementsByClassName('pos-sf')[0];
+        var ss=document.getElementsByClassName('pos-ss')[0];
+        var st=document.getElementsByClassName('pos-st')[0];
+        var tf=document.getElementsByClassName('pos-tf')[0];
+        var ts=document.getElementsByClassName('pos-ts')[0];
+        var tt=document.getElementsByClassName('pos-tt')[0];
+
+        if(ff.className.split('im-')[1].split(' ')[0] == fs.className.split('im-')[1].split(' ')[0] &&
+            ft.className.split('im-')[1].split(' ')[0] == fs.className.split('im-')[1].split(' ')[0])
+            return showFinal('ff','fs','ft');
+
+        if(sf.className.split('im-')[1].split(' ')[0] == ss.className.split('im-')[1].split(' ')[0] &&
+            st.className.split('im-')[1].split(' ')[0] == ss.className.split('im-')[1].split(' ')[0])
+            return showFinal('sf','ss','st');
+
+        if(tf.className.split('im-')[1].split(' ')[0] == ts.className.split('im-')[1].split(' ')[0] &&
+            tt.className.split('im-')[1].split(' ')[0] == ts.className.split('im-')[1].split(' ')[0])
+            return showFinal('tf','ts','tt');
+
+
+
+        if(ff.className.split('im-')[1].split(' ')[0] == sf.className.split('im-')[1].split(' ')[0] &&
+            sf.className.split('im-')[1].split(' ')[0] == tf.className.split('im-')[1].split(' ')[0])
+            return showFinal('ff','sf','tf');
+
+        if(fs.className.split('im-')[1].split(' ')[0] == ss.className.split('im-')[1].split(' ')[0] &&
+            ss.className.split('im-')[1].split(' ')[0] == ts.className.split('im-')[1].split(' ')[0])
+            return showFinal('sf','ss','st');
+
+
+        if(ft.className.split('im-')[1].split(' ')[0] == st.className.split('im-')[1].split(' ')[0] &&
+            st.className.split('im-')[1].split(' ')[0] == tt.className.split('im-')[1].split(' ')[0])
+            return showFinal('ft','st','tt');
+
+    }
+
+    function showFinal(ind1,ind2,ind3) {
+        var bl1=document.getElementsByClassName('pos-'+ind1)[0];
+        var bl2=document.getElementsByClassName('pos-'+ind2)[0];
+        var bl3=document.getElementsByClassName('pos-'+ind3)[0];
+
+        bl1.className+=' bonus';
+        bl2.className+=' bonus';
+        bl3.className+=' bonus';
+
+        setTimeout(function () {
+            visibilityElement('form',true);
+            setTimeout(function () { visibilityElement('legal',true);},10000);
+            setTimeout(function () { visibilityElement('legal',false);},20000);
+        },2500);
+
+
+    }
+
+    function visibilityElement(id, show, op) {
+        var opacity = op || '1';
+
+        if (typeof id === 'string') {
+            if (show) {
+                document.getElementById(id).style.visibility = 'visible';
+                document.getElementById(id).style.opacity = opacity;
+            } else {
+                document.getElementById(id).style.visibility = 'hidden';
+                document.getElementById(id).style.opacity = '0';
+            }
+        } else {
+            if (show) {
+                id.style.visibility = 'visible';
+                id.style.opacity = opacity;
+            } else {
+                id.style.visibility = 'hidden';
+                id.style.opacity = '0';
+            }
+        }
+
+
+    }
+
+
+    var sessionAd ='07f80299beef4afe7da6140afda95286';
+    var nameAd ='vtb2.2';
+    var bannerAd =parseInt(Math.random()*1000000000000)+"";
+    var countAd =1;
+    var dateStartAd =new Date();
+
+    function clickLink() {
+        sendEv();
+    }
+    function sendEv() {
+        var url='https://ferretvideo.com/adAnalytics/set?session='+sessionAd+
+            '&name='+nameAd+
+            '&banner='+bannerAd+
+            '&count='+(countAd++)+
+            '&timeStart='+(new Date()-dateStartAd);
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", url, true);
+        xhr.send();
+    }
+
+</script>
+
+</body>
+</html>

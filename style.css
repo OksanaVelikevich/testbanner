@@ -1,0 +1,224 @@
+@font-face {
+    font-family: "VTBGroupUISemiBold";
+    src: url("./VTBGroupUI-SemiBold.woff2") format("woff"); /* Modern Browsers */
+}
+
+
+body {
+    margin: 0;
+    font-family: 'VTBGroupUISemiBold', sans-serif !important;
+}
+
+.wrapper {
+    width: 320px;
+    height: 480px;
+    position: relative;
+}
+
+.form {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 11111;
+    width: 100%;
+    cursor: pointer;
+    transition: 0.5s;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.legal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1111111;
+    width: 100%;
+    cursor: pointer;
+    transition: 0.5s;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.legal img {
+    position: absolute;
+    z-index: -1;
+}
+
+.legal p {
+    width: 100%;
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+.wrapper img {
+    width: 100%;
+}
+
+.wrapper .game .logos {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 25px;
+}
+
+.wrapper .game .logos {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 25px;
+}
+
+.wrapper .game .logos img {
+    display: inline-block;
+    width: 200px;
+    margin: 0 15px;
+}
+
+.wrapper .game h1 {
+    font-weight: 100;
+    width: 100%;
+    position: absolute;
+    top: 80px;
+    font-size: 31px;
+    color: white;
+    text-align: center;
+}
+
+.wrapper .game .cards-wrapper {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 165px;
+}
+
+.wrapper .game .cards-wrapper .cards {
+    display: inline-block;
+    position: relative;
+    width: 270px;
+}
+
+.wrapper .game .cards-wrapper .cards .card {
+    display: inline-block;
+    position: absolute;
+    width: 100px;
+    cursor: pointer;
+    transition: 0.5s;
+
+    filter: drop-shadow(8px 7px 2px rgba(0, 0, 0, 0.4));
+}
+
+.wrapper .game .cards-wrapper .cards .card.active {
+    transform: scale(1.2);
+}
+
+.wrapper .game .cards-wrapper .cards .card.bonus {
+    transform: scale(1.4);
+    animation: pulse 0.7s infinite;
+}
+
+
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    70% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+.wrapper .game .cards-wrapper .cards .card:hover {
+    transform: scale(1.2);
+}
+
+.wrapper .game h3 {
+    font-weight: 100;
+    width: 100%;
+    position: absolute;
+    top: 400px;
+    text-align: center;
+    color: white;
+    font-size: 19px;
+}
+
+
+.wrapper .game .cards-wrapper .cards .card.im-if {
+    width: 69px;
+}
+
+.wrapper .game .cards-wrapper .cards .card.im-is {
+    width: 69px;
+}
+
+.wrapper .game .cards-wrapper .cards .card.im-it {
+    width: 69px;
+}
+
+
+.wrapper .game .cards-wrapper .cards .card.pos-ff {
+    top: 0px;
+    left: 0px;
+}
+
+.wrapper .game .cards-wrapper .cards .card.pos-fs {
+    top: 0px;
+    left: 103px;
+}
+
+.wrapper .game .cards-wrapper .cards .card.pos-ft {
+    top: 0px;
+    left: 200px;
+}
+
+.wrapper .game .cards-wrapper .cards .card.pos-sf {
+    top: 75px;
+    left: 0px;
+}
+
+.wrapper .game .cards-wrapper .cards .card.pos-ss {
+    top: 75px;
+    left: 103px;
+}
+
+.wrapper .game .cards-wrapper .cards .card.pos-st {
+    top: 75px;
+    left: 200px;
+}
+
+.wrapper .game .cards-wrapper .cards .card.pos-tf {
+    top: 150px;
+    left: 0px;
+}
+
+.wrapper .game .cards-wrapper .cards .card.pos-ts {
+    top: 150px;
+    left: 103px;
+}
+
+.wrapper .game .cards-wrapper .cards .card.pos-tt {
+    top: 150px;
+    left: 200px;
+}
+
+
+/* .wrapper .game .cards-wrapper .cards .card.pos-ft.im-is {
+    margin-left: -20px;
+} */
+
+/* .wrapper .game .cards-wrapper .cards .card.pos-tt.im-is {
+    margin-left: -20px;
+}
+.wrapper .game .cards-wrapper .cards .card.pos-st.im-is {
+    margin-left: -20px;
+} */
+
+/* 
+.wrapper .game .cards-wrapper .cards .card.pos-ts.im-it {
+    margin-left: 8px;
+} */
