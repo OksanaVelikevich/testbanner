@@ -10,34 +10,27 @@ body {
 }
 
 .wrapper {
+    position: absolute;
     width: 320px;
     height: 480px;
-    position: relative;
+    background: linear-gradient(45deg, #a0ebeb, #1ec7cc);
 }
+
 
 .form {
     position: absolute;
     top: 0;
     left: 0;
     z-index: 11111;
-    width: 100%;
+    width: 320px;
+    height: 480px;
     cursor: pointer;
     transition: 0.5s;
     visibility: hidden;
     opacity: 0;
+    background: linear-gradient(45deg, #a0ebeb, #1ec7cc);
 }
 
-.legal {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1111111;
-    width: 100%;
-    cursor: pointer;
-    transition: 0.5s;
-    visibility: hidden;
-    opacity: 0;
-}
 
 .legal img {
     position: absolute;
@@ -72,7 +65,7 @@ body {
 
 .wrapper .game .logos img {
     display: inline-block;
-    width: 200px;
+    width: 220px;
     margin: 0 15px;
 }
 
@@ -80,7 +73,7 @@ body {
     font-weight: 100;
     width: 100%;
     position: absolute;
-    top: 80px;
+    top: 90px;
     font-size: 31px;
     color: white;
     text-align: center;
@@ -141,7 +134,7 @@ body {
     font-weight: 100;
     width: 100%;
     position: absolute;
-    top: 400px;
+    top: 415px;
     text-align: center;
     color: white;
     font-size: 19px;
@@ -207,18 +200,3 @@ body {
 }
 
 
-/* .wrapper .game .cards-wrapper .cards .card.pos-ft.im-is {
-    margin-left: -20px;
-} */
-
-/* .wrapper .game .cards-wrapper .cards .card.pos-tt.im-is {
-    margin-left: -20px;
-}
-.wrapper .game .cards-wrapper .cards .card.pos-st.im-is {
-    margin-left: -20px;
-} */
-
-/* 
-.wrapper .game .cards-wrapper .cards .card.pos-ts.im-it {
-    margin-left: 8px;
-} */
