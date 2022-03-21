@@ -42,13 +42,6 @@
             </div>
         </div>
 
-<!--        <div class="form" id="form" onclick="finalClick()">-->
-<!--             <div class="back">-->
-<!--                 <div class="logos1">-->
-<!--                     <img src="logo3.png">-->
-<!--                 </div>-->
-<!--             </div>-->
-<!--        </div>-->
 
         <img src="./form1.jpg" class="form" id="form" onclick="finalClick()">
 
@@ -83,7 +76,11 @@
         sendEv();
     }
 
+    let counter=0;
+
     function checkData() {
+        unPoint();
+
         var ff=document.getElementsByClassName('pos-ff')[0];
         var fs=document.getElementsByClassName('pos-fs')[0];
         var ft=document.getElementsByClassName('pos-ft')[0];
@@ -96,34 +93,40 @@
 
         if(ff.className.split('im-')[1].split(' ')[0] == fs.className.split('im-')[1].split(' ')[0] &&
             ft.className.split('im-')[1].split(' ')[0] == fs.className.split('im-')[1].split(' ')[0])
-            return showFinal('ff','fs','ft');
+            point('ff','fs','ft');
 
         if(sf.className.split('im-')[1].split(' ')[0] == ss.className.split('im-')[1].split(' ')[0] &&
             st.className.split('im-')[1].split(' ')[0] == ss.className.split('im-')[1].split(' ')[0])
-            return showFinal('sf','ss','st');
+            point('sf','ss','st');
 
         if(tf.className.split('im-')[1].split(' ')[0] == ts.className.split('im-')[1].split(' ')[0] &&
             tt.className.split('im-')[1].split(' ')[0] == ts.className.split('im-')[1].split(' ')[0])
-            return showFinal('tf','ts','tt');
+            point('tf','ts','tt');
 
 
 
         if(ff.className.split('im-')[1].split(' ')[0] == sf.className.split('im-')[1].split(' ')[0] &&
             sf.className.split('im-')[1].split(' ')[0] == tf.className.split('im-')[1].split(' ')[0])
-            return showFinal('ff','sf','tf');
+            point('ff','sf','tf');
 
         if(fs.className.split('im-')[1].split(' ')[0] == ss.className.split('im-')[1].split(' ')[0] &&
             ss.className.split('im-')[1].split(' ')[0] == ts.className.split('im-')[1].split(' ')[0])
-            return showFinal('sf','ss','st');
+            point('sf','ss','st');
 
 
         if(ft.className.split('im-')[1].split(' ')[0] == st.className.split('im-')[1].split(' ')[0] &&
             st.className.split('im-')[1].split(' ')[0] == tt.className.split('im-')[1].split(' ')[0])
-            return showFinal('ft','st','tt');
+            point('ft','st','tt');
 
+        if(counter>=3) return showFinal('ft','st','tt');
     }
 
-    function showFinal(ind1,ind2,ind3) {
+    function unPoint() {
+        counter=0;
+        for(let t of document.getElementsByClassName('card'))
+            t.className=t.className.replace('bonus','');
+    }
+    function point(ind1,ind2,ind3) {
         var bl1=document.getElementsByClassName('pos-'+ind1)[0];
         var bl2=document.getElementsByClassName('pos-'+ind2)[0];
         var bl3=document.getElementsByClassName('pos-'+ind3)[0];
@@ -131,12 +134,15 @@
         bl1.className+=' bonus';
         bl2.className+=' bonus';
         bl3.className+=' bonus';
+        counter++;
+    }
+    function showFinal(ind1,ind2,ind3) {
+        for(let t of document.getElementsByClassName('card'))
+            t.className+=' bonus';
 
         setTimeout(function () {
             visibilityElement('form',true);
-        },2500);
-
-
+        },1000);
     }
 
     function visibilityElement(id, show, op) {
